@@ -1,286 +1,343 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Countdown to LBP</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon" />
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Countdown to LBP</title>
+        <link rel="icon" href="favicon.ico" type="image/x-icon" />
+        <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
 
-    <meta
-      property="og:title"
-      content="LBP: Love, Brisket, Poker; a life journey of friends"
-    />
-    <meta
-      property="og:description"
-      content="LBP represents a commitment to lifelong fellowship, a yearly coming together to celebrate, commiserate, and masticate. This year's LBP is July 9 - 12, 2026"
-    />
-    <meta property="og:image" content="https://whenislbp.net/lbpq4-01.png" />
-    <meta property="og:url" content="https://whenislbp.net" />
-    <meta property="og:type" content="website" />
-    <style>
-      body {
-        font-family: "Arial", sans-serif;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        height: 100vh;
-        margin: 0;
-        color: white;
-        background: url("./oakridge-ranch.jpeg") no-repeat center center fixed;
-        /* background: url("https://images.unsplash.com/photo-1589303204158-c33028c33117")
+        <meta
+            property="og:title"
+            content="LBP: Love, Brisket, Poker; a life journey of friends"
+        />
+        <meta
+            property="og:description"
+            content="LBP represents a commitment to lifelong fellowship, a yearly coming together to celebrate, commiserate, and masticate. This year's LBP is July 9 - 12, 2026"
+        />
+        <meta
+            property="og:image"
+            content="https://whenislbp.net/lbpq4-01.png"
+        />
+        <meta property="og:url" content="https://whenislbp.net" />
+        <meta property="og:type" content="website" />
+        <style>
+            body {
+                font-family: "Arial", sans-serif;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+                color: white;
+                background: url("./oakridge-ranch.jpeg") no-repeat center center
+                    fixed;
+                /* background: url("https://images.unsplash.com/photo-1589303204158-c33028c33117")
           no-repeat center center fixed; */
-        background-size: cover;
-      }
-      a {
-        color: red;
-        font-family: helvetica;
-        text-decoration: none;
-        text-transform: uppercase;
-      }
+                background-size: cover;
+            }
+            a {
+                color: red;
+                font-family: helvetica;
+                text-decoration: none;
+                text-transform: uppercase;
+            }
 
-      a:hover {
-        text-decoration: underline;
-      }
+            a:hover {
+                text-decoration: underline;
+            }
 
-      a:active {
-        color: orange;
-      }
+            a:active {
+                color: orange;
+            }
 
-      a:visited {
-        color: darkorange;
-      }
-      .unknown {
-        background: url("https://images.unsplash.com/photo-1661152900445-e67ccd781141")
-          no-repeat center center fixed;
-      }
-      .countdown,
-      .images {
-        text-align: center;
-        background: rgba(0, 0, 0, 0.7);
-        padding: 20px;
-        border-radius: 15px;
-        box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
-        width: 90%;
-        max-width: 600px;
-        margin-bottom: 20px;
-      }
-      .countdown h1,
-      .images h1 {
-        margin: 0 0 20px;
-        font-size: 2em;
-        font-weight: bold;
-      }
-      .time {
-        display: flex;
-        justify-content: space-around;
-        flex-wrap: nowrap;
-        font-size: 1.5em;
-      }
-      .time div {
-        margin: 10px;
-        flex: 1; /* Ensure items shrink if necessary */
-        min-width: 50px; /* Set a minimum width for each item */
-        text-align: center; /* Center the text within each div */
-      }
-      .label {
-        font-size: 0.5em;
-        text-transform: uppercase;
-        margin-top: 5px;
-        color: #ddd;
-      }
-      .images {
-        display: flex;
-        justify-content: space-between;
-      }
-      .images img {
-        width: 18%;
-        border-radius: 10px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
-      }
-      @media (min-width: 600px) {
-        .countdown h1 {
-          font-size: 2.5em;
-        }
-        .time {
-          font-size: 2em;
-        }
-        .time div {
-          margin: 15px;
-        }
-      }
-      .confetti {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        pointer-events: none;
-        z-index: 1000;
-      }
-      .confetti-piece {
-        position: absolute;
-        width: 30px;
-        height: 30px;
-        background-size: cover;
-        opacity: 0;
-        animation: confetti-fall 15s linear forwards;
-      }
-      @keyframes confetti-fall {
-        0% {
-          opacity: 1;
-          transform: translateY(0) rotate(0deg);
-        }
-        100% {
-          opacity: 0;
-          transform: translateY(100vh) rotate(360deg);
-        }
-      }
-    </style>
-  </head>
-  <body>
-    <div class="countdown">
-      <h1 id="status">Countdown to LBP: 2026-07-09 15:00 CDT</h1>
-      <h3>
-        <a
-          href="https://www.staytexas.com/rentals/oakridge-ranch"
-          target="_blank"
-          >Venue: Oakridge Ranch</a
-        >
-      </h3>
-      <div class="time" id="time">
-        <div id="weeks-container">
-          <span id="weeks">0</span>
-          <div class="label">Weeks</div>
+            a:visited {
+                color: darkorange;
+            }
+            .unknown {
+                background: url("https://images.unsplash.com/photo-1661152900445-e67ccd781141")
+                    no-repeat center center fixed;
+            }
+            .countdown,
+            .images {
+                text-align: center;
+                background: rgba(0, 0, 0, 0.7);
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+                width: 90%;
+                max-width: 600px;
+                margin-bottom: 20px;
+            }
+            .countdown h1,
+            .images h1 {
+                margin: 0 0 20px;
+                font-size: 2em;
+                font-weight: bold;
+            }
+            .time {
+                display: flex;
+                justify-content: space-around;
+                flex-wrap: nowrap;
+                font-size: 1.5em;
+            }
+            .time div {
+                margin: 10px;
+                flex: 1; /* Ensure items shrink if necessary */
+                min-width: 50px; /* Set a minimum width for each item */
+                text-align: center; /* Center the text within each div */
+            }
+            .label {
+                font-size: 0.5em;
+                text-transform: uppercase;
+                margin-top: 5px;
+                color: #ddd;
+            }
+            .images {
+                display: flex;
+                justify-content: space-between;
+            }
+            .images img {
+                width: 18%;
+                border-radius: 10px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            }
+            #loop-toggle {
+                margin-top: 15px;
+                padding: 8px 16px;
+                font-size: 0.9em;
+                font-family: helvetica;
+                text-transform: uppercase;
+                color: red;
+                background: transparent;
+                border: 1px solid red;
+                border-radius: 8px;
+                cursor: pointer;
+            }
+            #loop-toggle:hover {
+                text-decoration: underline;
+            }
+            #loop-toggle.playing {
+                color: orange;
+                border-color: orange;
+            }
+            @media (min-width: 600px) {
+                .countdown h1 {
+                    font-size: 2.5em;
+                }
+                .time {
+                    font-size: 2em;
+                }
+                .time div {
+                    margin: 15px;
+                }
+            }
+            .confetti {
+                position: fixed;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                pointer-events: none;
+                z-index: 1000;
+            }
+            .confetti-piece {
+                position: absolute;
+                width: 30px;
+                height: 30px;
+                background-size: cover;
+                opacity: 0;
+                animation: confetti-fall 15s linear forwards;
+            }
+            @keyframes confetti-fall {
+                0% {
+                    opacity: 1;
+                    transform: translateY(0) rotate(0deg);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translateY(100vh) rotate(360deg);
+                }
+            }
+        </style>
+    </head>
+    <body>
+        <div class="countdown">
+            <h1 id="status">Countdown to LBP: 2026-07-09 16:00 CDT</h1>
+            <h3>
+                <a
+                    href="https://www.staytexas.com/rentals/oakridge-ranch"
+                    target="_blank"
+                    >Venue: Oakridge Ranch</a
+                >
+            </h3>
+            <div class="time" id="time">
+                <div id="weeks-container">
+                    <span id="weeks">0</span>
+                    <div class="label">Weeks</div>
+                </div>
+                <div id="days-container">
+                    <span id="days">0</span>
+                    <div class="label">Days</div>
+                </div>
+                <div id="hours-container">
+                    <span id="hours">0</span>
+                    <div class="label">Hours</div>
+                </div>
+                <div id="minutes-container">
+                    <span id="minutes">0</span>
+                    <div class="label">Minutes</div>
+                </div>
+                <div id="seconds-container">
+                    <span id="seconds">0</span>
+                    <div class="label">Seconds</div>
+                </div>
+            </div>
+            <button id="loop-toggle" type="button">🔁 Loop Anthem</button>
         </div>
-        <div id="days-container">
-          <span id="days">0</span>
-          <div class="label">Days</div>
+        <audio id="anthem-player" src="lbp-ai-song.mp3" preload="auto"></audio>
+        <div class="images">
+            <img src="scorpion01.png" alt="scorpion" />
+            <img src="weedwater01.png" alt="weedwater" />
+            <img src="ribs.png" alt="pool ribs" />
+            <img src="carrollton.png" alt="carrollton" />
+            <img src="lbp2024.png" alt="LBP 2025" />
         </div>
-        <div id="hours-container">
-          <span id="hours">0</span>
-          <div class="label">Hours</div>
-        </div>
-        <div id="minutes-container">
-          <span id="minutes">0</span>
-          <div class="label">Minutes</div>
-        </div>
-        <div id="seconds-container">
-          <span id="seconds">0</span>
-          <div class="label">Seconds</div>
-        </div>
-      </div>
-    </div>
-    <audio id="anthem-player" src="lbp-ai-song.mp3" preload="auto"></audio>
-    <div class="images">
-      <img src="scorpion01.png" alt="scorpion" />
-      <img src="weedwater01.png" alt="weedwater" />
-      <img src="ribs.png" alt="pool ribs" />
-      <img src="carrollton.png" alt="carrollton" />
-      <img src="lbp2024.png" alt="LBP 2025" />
-    </div>
 
-    <!-- Confetti Container -->
-    <div class="confetti" id="confetti"></div>
+        <!-- Confetti Container -->
+        <div class="confetti" id="confetti"></div>
 
-    <script>
-      function updateCountdown() {
-        const now = new Date();
-        const startDate = new Date("July 9, 2026 15:00:00");
-        const endDate = new Date("July 12, 2026 11:00:00");
+        <script>
+            function updateCountdown() {
+                const now = new Date();
+                const startDate = new Date("July 9, 2026 16:00:00");
+                const endDate = new Date("July 12, 2026 11:00:00");
 
-        if (startDate <= now && now <= endDate) {
-          document.getElementById("status").textContent = "It's happening!";
-          document.body.style.background =
-            "url('https://images.unsplash.com/photo-1518316974705-e5c4a6ee2374')";
-          document.body.style.backgroundSize = "cover";
-          document.getElementById("time").style.display = "none";
-          return;
-        }
+                if (startDate <= now && now <= endDate) {
+                    document.getElementById("status").textContent =
+                        "It's happening!";
+                    document.body.style.background =
+                        "url('https://images.unsplash.com/photo-1518316974705-e5c4a6ee2374')";
+                    document.body.style.backgroundSize = "cover";
+                    document.getElementById("time").style.display = "none";
+                    return;
+                }
 
-        if (now > endDate) {
-          document.getElementById("status").textContent = "Who knows?";
-          document.body.style.background =
-            "url('https://images.unsplash.com/photo-1661152900445-e67ccd781141')";
-          document.body.style.backgroundSize = "cover";
-          document.getElementById("time").style.display = "none";
-          return;
-        }
+                if (now > endDate) {
+                    document.getElementById("status").textContent =
+                        "Who knows?";
+                    document.body.style.background =
+                        "url('https://images.unsplash.com/photo-1661152900445-e67ccd781141')";
+                    document.body.style.backgroundSize = "cover";
+                    document.getElementById("time").style.display = "none";
+                    return;
+                }
 
-        const totalSeconds = (startDate - now) / 1000;
+                const totalSeconds = (startDate - now) / 1000;
 
-        const weeks = Math.floor(totalSeconds / (60 * 60 * 24 * 7));
-        const days = Math.floor(totalSeconds / (60 * 60 * 24)) % 7;
-        const hours = Math.floor(totalSeconds / 3600) % 24;
-        const minutes = Math.floor(totalSeconds / 60) % 60;
-        const seconds = Math.floor(totalSeconds % 60);
+                const weeks = Math.floor(totalSeconds / (60 * 60 * 24 * 7));
+                const days = Math.floor(totalSeconds / (60 * 60 * 24)) % 7;
+                const hours = Math.floor(totalSeconds / 3600) % 24;
+                const minutes = Math.floor(totalSeconds / 60) % 60;
+                const seconds = Math.floor(totalSeconds % 60);
 
-        document.getElementById("weeks-container").style.display = "none";
-        document.getElementById("days-container").style.display = "none";
-        document.getElementById("hours-container").style.display = "none";
-        document.getElementById("minutes-container").style.display = "none";
-        document.getElementById("seconds-container").style.display = "none";
-        if (weeks > 0) {
-          document.getElementById("weeks").textContent = weeks;
-          document.getElementById("weeks-container").style.display = "block";
-        }
-        if (days > 0) {
-          document.getElementById("days").textContent = days;
-          document.getElementById("days-container").style.display = "block";
-        }
-        if (hours > 0) {
-          document.getElementById("hours").textContent = hours;
-          document.getElementById("hours-container").style.display = "block";
-        }
-        if (minutes > 0) {
-          document.getElementById("minutes").textContent = minutes;
-          document.getElementById("minutes-container").style.display = "block";
-        }
-        if (totalSeconds > 0) {
-          document.getElementById("seconds").textContent = seconds;
-          document.getElementById("seconds-container").style.display = "block";
-        }
-        if (seconds % 30 === 0) {
-          startConfetti();
-        }
-      }
+                document.getElementById("weeks-container").style.display =
+                    "none";
+                document.getElementById("days-container").style.display =
+                    "none";
+                document.getElementById("hours-container").style.display =
+                    "none";
+                document.getElementById("minutes-container").style.display =
+                    "none";
+                document.getElementById("seconds-container").style.display =
+                    "none";
+                if (weeks > 0) {
+                    document.getElementById("weeks").textContent = weeks;
+                    document.getElementById("weeks-container").style.display =
+                        "block";
+                }
+                if (days > 0) {
+                    document.getElementById("days").textContent = days;
+                    document.getElementById("days-container").style.display =
+                        "block";
+                }
+                if (hours > 0) {
+                    document.getElementById("hours").textContent = hours;
+                    document.getElementById("hours-container").style.display =
+                        "block";
+                }
+                if (minutes > 0) {
+                    document.getElementById("minutes").textContent = minutes;
+                    document.getElementById("minutes-container").style.display =
+                        "block";
+                }
+                if (totalSeconds > 0) {
+                    document.getElementById("seconds").textContent = seconds;
+                    document.getElementById("seconds-container").style.display =
+                        "block";
+                }
+                if (seconds % 30 === 0) {
+                    startConfetti();
+                }
+            }
 
-      function startConfetti() {
-        const confettiImages = [
-          "./lbp2024.png",
-          "./weedwater01.png",
-          "./scorpion01.png",
-          "./ribs.png",
-          "./carrollton.png",
-        ];
+            function startConfetti() {
+                const confettiImages = [
+                    "./lbp2024.png",
+                    "./weedwater01.png",
+                    "./scorpion01.png",
+                    "./ribs.png",
+                    "./carrollton.png",
+                ];
 
-        const confettiContainer = document.getElementById("confetti");
-        for (let i = 0; i < 100; i++) {
-          const confettiPiece = document.createElement("div");
-          confettiPiece.classList.add("confetti-piece");
-          confettiPiece.style.left = Math.random() * 100 + "vw";
-          confettiPiece.style.animationDelay = Math.random() * 5 + "s";
-          confettiPiece.style.animationDuration = Math.random() * 5 + 10 + "s";
+                const confettiContainer = document.getElementById("confetti");
+                for (let i = 0; i < 100; i++) {
+                    const confettiPiece = document.createElement("div");
+                    confettiPiece.classList.add("confetti-piece");
+                    confettiPiece.style.left = Math.random() * 100 + "vw";
+                    confettiPiece.style.animationDelay =
+                        Math.random() * 5 + "s";
+                    confettiPiece.style.animationDuration =
+                        Math.random() * 5 + 10 + "s";
 
-          // Randomly select a confetti image
-          const randomImage =
-            confettiImages[Math.floor(Math.random() * confettiImages.length)];
-          confettiPiece.style.backgroundImage = `url(${randomImage})`;
+                    // Randomly select a confetti image
+                    const randomImage =
+                        confettiImages[
+                            Math.floor(Math.random() * confettiImages.length)
+                        ];
+                    confettiPiece.style.backgroundImage = `url(${randomImage})`;
 
-          confettiContainer.appendChild(confettiPiece);
-        }
-        // Remove confetti after 15 seconds
-        setTimeout(() => {
-          confettiContainer.innerHTML = "";
-        }, 15000);
-      }
-      document.querySelector(".images").addEventListener("click", () => {
-        const audio = document.getElementById("anthem-player");
-        audio.play();
-      });
-      updateCountdown();
-      setInterval(updateCountdown, 1000);
-    </script>
-  </body>
+                    confettiContainer.appendChild(confettiPiece);
+                }
+                // Remove confetti after 15 seconds
+                setTimeout(() => {
+                    confettiContainer.innerHTML = "";
+                }, 15000);
+            }
+            document.querySelector(".images").addEventListener("click", () => {
+                const audio = document.getElementById("anthem-player");
+                audio.play();
+            });
+
+            const loopToggle = document.getElementById("loop-toggle");
+            const anthemPlayer = document.getElementById("anthem-player");
+            loopToggle.addEventListener("click", () => {
+                if (anthemPlayer.paused) {
+                    anthemPlayer.loop = true;
+                    anthemPlayer.play();
+                    loopToggle.textContent = "⏹ Stop Anthem";
+                    loopToggle.classList.add("playing");
+                } else {
+                    anthemPlayer.pause();
+                    anthemPlayer.currentTime = 0;
+                    anthemPlayer.loop = false;
+                    loopToggle.textContent = "🔁 Loop Anthem";
+                    loopToggle.classList.remove("playing");
+                }
+            });
+            updateCountdown();
+            setInterval(updateCountdown, 1000);
+        </script>
+    </body>
 </html>
